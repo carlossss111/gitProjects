@@ -39,6 +39,7 @@ fetch(url)
 
     //now take the response and use it
     .then(jsonResponse => {
+        document.getElementById("tableFoot").remove();//remove loading msg
         jsonResponse = jsonResponse.record;
         addTableData(jsonResponse.cocktails[0]);
         addTableData(jsonResponse.cocktails[1]);
