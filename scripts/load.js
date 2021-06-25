@@ -35,11 +35,14 @@ fetch(url)
         if(response.ok)
             return response.json();
         throw new Error("Request failed.");
-    }, networkError => console.log(networkError.message))
+    }, 
+    networkError => 
+        console.log(networkError.message)
+    )
 
     //now take the response and use it
     .then(jsonResponse => {
-        document.getElementById("tableFoot").remove();//remove loading msg
+        document.getElementById("tableFoot").parentNode.remove();
         jsonResponse = jsonResponse.record;
         addTableData(jsonResponse.cocktails[0]);
         addTableData(jsonResponse.cocktails[1]);
